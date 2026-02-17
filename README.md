@@ -1,6 +1,6 @@
 # JoJoPlayground
 
-Designer-focused starter kit for AI vibe coding: guided workflow + pre-written rules to keep code aligned with your design. No coding experience required. No built-in design system—bring your own.
+Designer-first AI vibe-coding starter kit with guided workflow + rules for design-aligned code. No coding experience required. Comes with a lightweight design system and 2 example flows.
 
 Design in Figma, build in Cursor, preview in Xcode.
 
