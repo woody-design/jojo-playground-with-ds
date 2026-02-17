@@ -15,6 +15,8 @@ import SwiftUI
 struct ContentView: View {
 
     @State private var showCatalog = false
+    @State private var showExampleFlow1 = false
+    @State private var showExampleFlow2 = false
 
     var body: some View {
         NavigationStack {
@@ -35,14 +37,14 @@ struct ContentView: View {
 
                     // Buttons
                     VStack(spacing: DSSpacing.none) {
-                        // Button 1 — blank
+                        // Button 1 — Example Flow 1
                         buttonRow {
-                            DSButton(label: "Example flow 1", action: { })
+                            DSButton(label: "Example flow 1", action: { showExampleFlow1 = true })
                         }
 
-                        // Button 2 — blank
+                        // Button 2 — Example Flow 2
                         buttonRow {
-                            DSButton(label: "Example flow 2", action: { })
+                            DSButton(label: "Example flow 2", action: { showExampleFlow2 = true })
                         }
 
                         // Button 3 — blank (green)
@@ -69,6 +71,12 @@ struct ContentView: View {
             .navigationBarHidden(true)
             .navigationDestination(isPresented: $showCatalog) {
                 ComponentCatalogView()
+            }
+            .navigationDestination(isPresented: $showExampleFlow1) {
+                ExampleFlow1Flow(onDismiss: { showExampleFlow1 = false })
+            }
+            .navigationDestination(isPresented: $showExampleFlow2) {
+                ExampleFlow2Flow(onDismiss: { showExampleFlow2 = false })
             }
         }
     }
