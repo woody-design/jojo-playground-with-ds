@@ -33,9 +33,32 @@ All paths are relative to `JoJoPlayground/`.
 
 Add your custom font files so the design system can reference them.
 
-> **Status: Not started**
+> **Status: Done**
 
-*Steps will be documented here as this phase is completed.*
+### What was done
+
+1. Added **Lexend Deca** (variable weight) to `Fonts/LexendDeca-VariableFont_wght.ttf`
+2. Registered the font in `Info.plist` under `UIAppFonts` with path `Fonts/LexendDeca-VariableFont_wght.ttf`
+3. Added a temporary `#if DEBUG` font printer in `JoJoPlaygroundApp.swift` to verify the font loads and discover its PostScript name
+4. Built and confirmed the font loads successfully
+
+### Troubleshooting notes
+
+**"A build only device cannot be used to run this target"**
+You have "Any iOS Device (arm64)" selected. Click the device selector in the Xcode toolbar (top center, next to the scheme name) and pick a **Simulator** (e.g., iPhone 16 Pro). Then Cmd+R again.
+
+**"Multiple commands produce '...Info.plist'" or "'..._README.md'"**
+This happens with Xcode 15+ filesystem sync (`PBXFileSystemSynchronizedRootGroup`) when non-code files collide in the app bundle. Fix: open **Build Phases > Copy Bundle Resources** and remove the conflicting files, or delete `_README.md` files from the source tree since they are documentation only.
+
+**Font doesn't appear (system font shows instead)**
+- Verify the filename in `Info.plist` matches exactly (case-sensitive), including the `Fonts/` prefix
+- Clean Build Folder (Cmd+Shift+K) and rebuild
+- Use the `#if DEBUG` font printer in `JoJoPlaygroundApp.swift` to check if the font family appears in the console
+
+### Next
+
+- Remove the debug font printer from `JoJoPlaygroundApp.swift` once no longer needed
+- Proceed to Phase 3 (Typography) to wire the PostScript name into `DSTypography.swift`
 
 ---
 

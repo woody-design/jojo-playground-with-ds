@@ -6,9 +6,7 @@
 	<string>JoJoPlayground</string>
 	<key>UIAppFonts</key>
 	<array>
-		<!-- Add your font filenames here, one per line. Example: -->
-		<!-- <string>YourFont-Regular.ttf</string> -->
-		<!-- <string>YourFont-Bold.ttf</string> -->
+		<string>Fonts/LexendDeca-VariableFont_wght.ttf</string>
 	</array>
 </dict>
 </plist>

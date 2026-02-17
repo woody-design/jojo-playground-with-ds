@@ -10,9 +10,25 @@
 		FB2118562F43CC5300D4B184 /* JoJoPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JoJoPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		FB0E96252F448C7100D0A3A9 /* Exceptions for "JoJoPlayground" folder in "JoJoPlayground" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DesignSystem/Components/_README.md,
+				Features/_README.md,
+				Fonts/_README.md,
+				Info.plist,
+			);
+			target = FB2118552F43CC5300D4B184 /* JoJoPlayground */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FB2118582F43CC5300D4B184 /* JoJoPlayground */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				FB0E96252F448C7100D0A3A9 /* Exceptions for "JoJoPlayground" folder in "JoJoPlayground" target */,
+			);
 			path = JoJoPlayground;
 			sourceTree = "<group>";
 		};

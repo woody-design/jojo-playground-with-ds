@@ -9,6 +9,17 @@ import SwiftUI
 
 @main
 struct JoJoPlaygroundApp: App {
+
+    init() {
+        #if DEBUG
+        for family in UIFont.familyNames.sorted() {
+            for name in UIFont.fontNames(forFamilyName: family) {
+                print("Font available: \(family) -- \(name)")
+            }
+        }
+        #endif
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()
