@@ -21,7 +21,7 @@ This playbook documents every phase of building a design system — from adding 
 | Colors | `DesignSystem/Tokens/DSColors.swift` |
 | Typography | `DesignSystem/Tokens/DSTypography.swift` |
 | Spacing | `DesignSystem/Tokens/DSSpacing.swift` |
-| Icons & Images | `Assets.xcassets/` |
+| Icons & Images | `Assets.xcassets/`, `DesignSystem/Tokens/DSIcons.swift` |
 | Components | `DesignSystem/Components/` |
 | Flows | `Features/` |
 
@@ -151,7 +151,7 @@ Fonts, colors, typography, and spacing are all defined. The design system founda
 - Spacing: `get_design_context` on the Spacing frame — returned spacer sizes and Figma token names
 - Tip: If a Figma node is too large for `get_design_context`, try `get_variable_defs` instead — it returns variable values without the full layout code
 
-**Next:** Build components (Phase 6) or add assets (Phase 5), then assemble flows (Phase 7).
+**Next:** ~~Build components (Phase 6) or add assets (Phase 5)~~ Phase 5 (Icons & Images) is now done. Next: build components (Phase 6), then assemble flows (Phase 7).
 
 ---
 
@@ -159,9 +159,61 @@ Fonts, colors, typography, and spacing are all defined. The design system founda
 
 Export assets from Figma and add them to the asset catalog.
 
-> **Status: Not started**
+> **Status: Done**
 
-*Steps will be documented here as this phase is completed.*
+### What was done
+
+1. Extracted the **icon size spec** from Figma (node `17:122664`), which defines 4 icon sizes: 24px, 20px, 16px, 14px
+2. Exported **8 custom icons** from Figma as PDF vectors and added them to `Assets.xcassets`:
+   - **24px:** `arrow_left` (back arrow)
+   - **20px:** `Search`, `User`, `Shopping cart`, `Map pin`, `Home`
+   - **16px:** `Close icon`
+   - **14px:** `circle_exclamation_point` (error indicator)
+3. Exported **3 images** as PNGs and added them to `Assets.xcassets`:
+   - `DS.Image` — placeholder image component
+   - `HomeBG` — home screen background
+   - `SearchBG` — search screen background
+4. Configured all icon image sets with:
+   - **Single Scale** (PDF vectors, no 1x/2x/3x needed)
+   - **Template Image** rendering (tintable via `foregroundStyle`)
+   - **Preserve Vector Data** enabled (clean scaling at any size)
+5. Created **`DSIcons.swift`** in `DesignSystem/Tokens/` with:
+   - Type-safe `Image` references for all 8 icons (e.g., `DSIcons.arrowLeft`)
+   - 4 size constants matching the Figma spec: `sizeLarge` (24), `sizeMedium` (20), `sizeSmall` (16), `sizeXSmall` (14)
+   - `DSImages` enum for the 3 raster images (e.g., `DSImages.homeBG`)
+
+### How to use icons in code
+
+```swift
+// Icon at its Figma-spec size, tinted with a design token color
+DSIcons.arrowLeft
+    .resizable()
+    .frame(width: DSIcons.sizeLarge, height: DSIcons.sizeLarge)
+    .foregroundStyle(DSColors.contentPrimary)
+
+// Tab bar icon
+DSIcons.home
+    .resizable()
+    .frame(width: DSIcons.sizeMedium, height: DSIcons.sizeMedium)
+    .foregroundStyle(DSColors.contentSecondary)
+```
+
+### How to use images in code
+
+```swift
+// Background image
+DSImages.homeBG
+    .resizable()
+    .aspectRatio(contentMode: .fill)
+```
+
+### Adding more icons later
+
+1. Export from Figma as **PDF** at 1x
+2. Drag into `Assets.xcassets` in Xcode
+3. Set: Single Scale, Template Image, Preserve Vector Data
+4. Add a `static let` to `DSIcons` in `DSIcons.swift`
+5. Update the token reference in `SPEC.md` and `.cursor/rules/jojoplayground.mdc`
 
 ---
 
@@ -187,4 +239,4 @@ Assemble components into full user flows. See [FLOW_TEMPLATE.md](FLOW_TEMPLATE.m
 
 ## Final Step
 
-Token tables in [SPEC.md](SPEC.md) (Section 5) and [.cursor/rules/jojoplayground.mdc](.cursor/rules/jojoplayground.mdc) are already updated for Phases 1–4. Update them again if you add new tokens, components, or assets in later phases.
+Token tables in [SPEC.md](SPEC.md) (Section 5) and [.cursor/rules/jojoplayground.mdc](.cursor/rules/jojoplayground.mdc) are already updated for Phases 1–5. Update them again if you add new tokens, components, or assets in later phases.

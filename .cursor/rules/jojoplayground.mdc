@@ -95,7 +95,7 @@ Features/{FlowName}/
 
 ```
 DesignSystem/
-├── Tokens/                       # DSColors, DSTypography, DSSpacing
+├── Tokens/                       # DSColors, DSTypography, DSSpacing, DSIcons
 └── Components/                   # DS-prefixed reusable components
 ```
 
@@ -141,6 +141,35 @@ Usage: `.font(DSTypography.title)` and `.lineSpacing(DSTypography.titleLineHeigh
 
 `none`=0, `s2`=2, `s4`=4, `s8`=8, `s12`=12, `s16`=16, `s20`=20, `s24`=24, `s28`=28, `s32`=32, `s36`=36, `s40`=40, `s48`=48, `s56`=56, `s64`=64, `s96`=96, `s128`=128
 
+### Icons (DSIcons)
+
+All icons are custom PDF vectors with Template Image rendering (tintable). Sizes from Figma spec:
+
+- `sizeLarge` = 24pt, `sizeMedium` = 20pt, `sizeSmall` = 16pt, `sizeXSmall` = 14pt
+
+| Token | Asset Name | Size |
+|-------|-----------|------|
+| `arrowLeft` | `arrow_left` | 24px |
+| `search` | `Search` | 20px |
+| `user` | `User` | 20px |
+| `shoppingCart` | `Shopping cart` | 20px |
+| `mapPin` | `Map pin` | 20px |
+| `home` | `Home` | 20px |
+| `close` | `Close icon` | 16px |
+| `circleExclamation` | `circle_exclamation_point` | 14px |
+
+Usage: `DSIcons.arrowLeft.resizable().frame(width: DSIcons.sizeLarge, height: DSIcons.sizeLarge).foregroundStyle(DSColors.contentPrimary)`
+
+### Images (DSImages)
+
+| Token | Asset Name | Description |
+|-------|-----------|-------------|
+| `dsImage` | `DS.Image` | Placeholder image |
+| `homeBG` | `HomeBG` | Home background |
+| `searchBG` | `SearchBG` | Search background |
+
+Usage: `DSImages.homeBG.resizable().aspectRatio(contentMode: .fill)`
+
 ## Coding Conventions
 
 ### File Structure
@@ -185,6 +214,8 @@ Figma DS components use dot-slash hierarchy. Map them to code as follows:
 - **ALWAYS** use `DSColors` for colors — never hardcode hex values
 - **ALWAYS** use `DSTypography` for fonts — never use `.font(.title)` or `.font(.system(...))`
 - **ALWAYS** use `DSSpacing` for padding/spacing — never hardcode numeric values
+- **ALWAYS** use `DSIcons` for icons — never use `Image("...")` with raw asset names or `Image(systemName:)` for custom icons
+- **ALWAYS** use `DSImages` for images — never use `Image("...")` with raw asset names
 
 ## When Adding a New Flow
 

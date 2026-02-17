@@ -89,7 +89,8 @@ JoJoPlayground/
 │   │   ├── Tokens/
 │   │   │   ├── DSColors.swift        # Color tokens
 │   │   │   ├── DSTypography.swift    # Typography tokens
-│   │   │   └── DSSpacing.swift       # Spacing tokens
+│   │   │   ├── DSSpacing.swift       # Spacing tokens
+│   │   │   └── DSIcons.swift         # Icon & image references + sizes
 │   │   └── Components/              # DS-prefixed reusable components
 │   │
 │   ├── Assets.xcassets/              # Icons, images, illustrations
@@ -363,17 +364,74 @@ Example: `FirstScreenView - Default`, `FirstScreenView - Filled`, `DS.Button / S
 
 ## 7. Asset Management
 
-### Adding Icons
+### 7.1 Icons (DSIcons)
 
-1. Export from Figma as **PDF** (vector)
+All icons are custom PDF vectors, configured as Template Images (tintable via `foregroundStyle`).
+
+**Icon Sizes** (from Figma spec node `17:122664`):
+
+| Size Constant | Value | Usage |
+|---------------|-------|-------|
+| `sizeLarge` | 24pt | Navigation icons (back arrow) |
+| `sizeMedium` | 20pt | Tab bar / action icons |
+| `sizeSmall` | 16pt | Utility icons (close) |
+| `sizeXSmall` | 14pt | Indicator icons (error badge) |
+
+**Icon Inventory:**
+
+| Token | Asset Name | Size | Description |
+|-------|-----------|------|-------------|
+| `arrowLeft` | `arrow_left` | 24px | Back / navigate left |
+| `search` | `Search` | 20px | Search action |
+| `user` | `User` | 20px | User / profile |
+| `shoppingCart` | `Shopping cart` | 20px | Shopping cart |
+| `mapPin` | `Map pin` | 20px | Location / map pin |
+| `home` | `Home` | 20px | Home tab |
+| `close` | `Close icon` | 16px | Close / dismiss |
+| `circleExclamation` | `circle_exclamation_point` | 14px | Error / warning indicator |
+
+**Usage:**
+
+```swift
+DSIcons.arrowLeft
+    .resizable()
+    .frame(width: DSIcons.sizeLarge, height: DSIcons.sizeLarge)
+    .foregroundStyle(DSColors.contentPrimary)
+```
+
+### 7.2 Images (DSImages)
+
+Raster PNG images stored in `Assets.xcassets`, rendered as Original Image.
+
+| Token | Asset Name | Description |
+|-------|-----------|-------------|
+| `dsImage` | `DS.Image` | Design system placeholder image |
+| `homeBG` | `HomeBG` | Home screen background |
+| `searchBG` | `SearchBG` | Search screen background |
+
+**Usage:**
+
+```swift
+DSImages.homeBG
+    .resizable()
+    .aspectRatio(contentMode: .fill)
+```
+
+### 7.3 Adding New Icons
+
+1. Export from Figma as **PDF** (vector) at 1x
 2. Drag into `Assets.xcassets` in Xcode
-3. Reference by asset name in code
+3. Configure: **Single Scale**, **Template Image**, **Preserve Vector Data**
+4. Add a `static let` to `DSIcons` in `DSIcons.swift`
+5. Update this spec and `.cursor/rules/jojoplayground.mdc`
 
-### Adding Images
+### 7.4 Adding New Images
 
-1. Export from Figma as **PDF** (vector) or **PNG** (raster)
+1. Export from Figma as **PNG** (raster)
 2. Drag into `Assets.xcassets` in Xcode
-3. Naming convention: `{FlowName}-{description}` (e.g., `OrderCard-confirmation`)
+3. Configure: **Original Image** rendering
+4. Add a `static let` to `DSImages` in `DSIcons.swift`
+5. Naming convention: `{FlowName}-{description}` (e.g., `OrderCard-confirmation`)
 
 ### Adding Components
 
