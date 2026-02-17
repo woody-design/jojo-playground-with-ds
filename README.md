@@ -51,6 +51,7 @@ See **CLAUDE_CODE_SETUP.md** for a quick setup guide.
 
 ## References
 
+- **[DESIGN_SYSTEM_PLAYBOOK.md](DESIGN_SYSTEM_PLAYBOOK.md)** — Step-by-step guide for building your design system
 - **[SPEC.md](SPEC.md)** — Design system tokens, architecture, and conventions
 - **[FLOW_TEMPLATE.md](FLOW_TEMPLATE.md)** — Step-by-step guide for adding new flows
 - **[CLAUDE_CODE_SETUP.md](CLAUDE_CODE_SETUP.md)** — Setup guide for Claude Code users
