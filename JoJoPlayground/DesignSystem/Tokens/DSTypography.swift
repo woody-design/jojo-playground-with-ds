@@ -25,7 +25,7 @@ import SwiftUI
 
 enum DSTypography {
 
-    // MARK: - Font Family Names (PostScript names from Lexend Deca variable font)
+    // MARK: - Font Family Names (PostScript names from Lexend Deca static fonts)
 
     private static let lexendDecaLight = "LexendDeca-Light"
     private static let lexendDecaRegular = "LexendDeca-Regular"

@@ -37,10 +37,16 @@ Add your custom font files so the design system can reference them.
 
 ### What was done
 
-1. Added **Lexend Deca** (variable weight) to `Fonts/LexendDeca-VariableFont_wght.ttf`
-2. Registered the font in `Info.plist` under `UIAppFonts` with path `Fonts/LexendDeca-VariableFont_wght.ttf`
-3. Added a temporary `#if DEBUG` font printer in `JoJoPlaygroundApp.swift` to verify the font loads and discover its PostScript name
-4. Built and confirmed the font loads successfully
+1. Added **9 static Lexend Deca font files** to `Fonts/`:
+   - `LexendDeca-Thin.ttf`, `LexendDeca-ExtraLight.ttf`, `LexendDeca-Light.ttf`, `LexendDeca-Regular.ttf`, `LexendDeca-Medium.ttf`, `LexendDeca-SemiBold.ttf`, `LexendDeca-Bold.ttf`, `LexendDeca-ExtraBold.ttf`, `LexendDeca-Black.ttf`
+2. Registered all 9 fonts in `Info.plist` under `UIAppFonts` using **filenames only** (no `Fonts/` prefix — Xcode's filesystem sync copies files flat into the bundle root)
+3. Set `INFOPLIST_FILE = JoJoPlayground/Info.plist` in both Debug and Release build configurations so Xcode merges custom keys (like `UIAppFonts`) into the generated Info.plist
+4. Verified fonts appear in **Build Phases > Copy Bundle Resources** in Xcode
+5. Built and confirmed all 3 used weights render correctly: Light, Regular, Medium
+
+### Why static fonts instead of variable font
+
+The variable font (`LexendDeca-VariableFont_wght.ttf`) exposes only one PostScript name (`LexendDeca-Regular`). SwiftUI's `Font.custom()` needs distinct PostScript names per weight. Static font files each have their own PostScript name (`LexendDeca-Light`, `LexendDeca-Regular`, `LexendDeca-Medium`), so `DSTypography.swift` works directly without workarounds.
 
 ### Troubleshooting notes
 
@@ -48,16 +54,14 @@ Add your custom font files so the design system can reference them.
 You have "Any iOS Device (arm64)" selected. Click the device selector in the Xcode toolbar (top center, next to the scheme name) and pick a **Simulator** (e.g., iPhone 16 Pro). Then Cmd+R again.
 
 **"Multiple commands produce '...Info.plist'" or "'..._README.md'"**
-This happens with Xcode 15+ filesystem sync (`PBXFileSystemSynchronizedRootGroup`) when non-code files collide in the app bundle. Fix: open **Build Phases > Copy Bundle Resources** and remove the conflicting files, or delete `_README.md` files from the source tree since they are documentation only.
+This happens with Xcode 16+ filesystem sync (`PBXFileSystemSynchronizedRootGroup`) when non-code files collide in the app bundle. Fix: open **Build Phases > Copy Bundle Resources** and remove the conflicting files, or delete `_README.md` files from the source tree since they are documentation only.
 
 **Font doesn't appear (system font shows instead)**
-- Verify the filename in `Info.plist` matches exactly (case-sensitive), including the `Fonts/` prefix
-- Clean Build Folder (Cmd+Shift+K) and rebuild
-- Use the `#if DEBUG` font printer in `JoJoPlaygroundApp.swift` to check if the font family appears in the console
-
-### Next
-
-- Remove the debug font printer from `JoJoPlaygroundApp.swift` once PostScript names are verified
+Three things must all be correct:
+1. **Info.plist filenames** — use filenames only (e.g., `LexendDeca-Regular.ttf`), NOT paths with `Fonts/` prefix. Xcode's filesystem sync copies resources flat into the bundle root.
+2. **INFOPLIST_FILE build setting** — must be set to `JoJoPlayground/Info.plist` in target build settings (both Debug and Release). Without this, `GENERATE_INFOPLIST_FILE = YES` causes Xcode to ignore the custom Info.plist entirely, and `UIAppFonts` won't be in the bundled plist.
+3. **Copy Bundle Resources** — verify font files appear in Build Phases > Copy Bundle Resources. If not, close and reopen the Xcode project to force a filesystem re-sync, or add them manually via the "+" button.
+- After any fix: Clean Build Folder (Cmd+Shift+K) and rebuild
 
 ---
 
@@ -136,7 +140,7 @@ Define your spacing scale in `DSSpacing.swift`.
 Fonts, colors, typography, and spacing are all defined. The design system foundation is ready for use.
 
 **Summary of what was built:**
-- **1 font** registered: Lexend Deca (variable weight, 3 weights used: Light, Regular, Medium)
+- **9 static fonts** registered: Lexend Deca (3 weights used: Light, Regular, Medium; all 9 weights available)
 - **46 color tokens** in `DSColors.swift` across 9 categories, extracted from Figma variables
 - **7 type styles** in `DSTypography.swift`, each with a `Font` and `lineHeight`
 - **17 spacing tokens** in `DSSpacing.swift` using Figma naming (`s2`–`s128` + `none`)
@@ -221,9 +225,44 @@ DSImages.homeBG
 
 Build reusable `DS`-prefixed components from your design system.
 
-> **Status: Not started**
+> **Status: Done**
 
-*Steps will be documented here as this phase is completed.*
+### What was done
+
+1. Built **4 design system components** in `DesignSystem/Components/`, all from Figma designs:
+   - **`DSButton.swift`** — Primary action button with 3 states: Default, Pressed (white 20% overlay), Disabled (gray). Uses custom `ButtonStyle` for press detection. All states use `bodyRegular` font.
+   - **`DSTitle.swift`** — Large title header (36px Medium, 44px line height). Supports multi-line wrapping with no truncation.
+   - **`DSSwitch.swift`** — Toggle switch with On/Off states and 3-layer animation: spring thumb slide, track color crossfade, thumb stretch effect (28pt to 34pt), plus haptic feedback.
+   - **`DSListItem.swift`** — Two-line list item (label + paragraph) with optional right-side control via `@ViewBuilder`. Includes bottom divider with 16pt left inset.
+
+2. Created **`ComponentCatalogView.swift`** in `DesignSystem/` — scrollable showcase of all 4 components in all states, with custom back button using `DSIcons.arrowLeft`.
+
+3. Rewrote **`ContentView.swift`** as the **landing page** (Figma node `22:5873`):
+   - 96pt top spacer, `DSTitle("👋 JoJoPlayground")`, `DSListItem` placeholder, 64pt gap
+   - 4 buttons: 2 primary (`DSButton`), 1 green (`backgroundPositive`), 1 yellow (`backgroundWarning`)
+   - Only the last button ("Components Catalog") navigates to `ComponentCatalogView`
+   - Wrapped in `NavigationStack` with system nav bar hidden
+
+### Component API reference
+
+```swift
+// DSButton — primary action button
+DSButton(label: "Label", action: { })
+DSButton(label: "Disabled", action: { }, isDisabled: true)
+
+// DSTitle — large title
+DSTitle("Screen Title")
+
+// DSSwitch — toggle with animation
+@State private var isOn = false
+DSSwitch(isOn: $isOn)
+
+// DSListItem — with optional control
+DSListItem(label: "Label", paragraph: "Description") {
+    DSSwitch(isOn: $isOn)
+}
+DSListItem(label: "Label", paragraph: "Description")  // no control
+```
 
 ---
 
