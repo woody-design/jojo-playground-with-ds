@@ -25,37 +25,46 @@ import SwiftUI
 
 enum DSTypography {
 
-    // MARK: - Font Family Names (PostScript names from your font files)
+    // MARK: - Font Family Names (PostScript names from Lexend Deca variable font)
 
-    // Add your PostScript font names here:
-    // private static let headingSemiBold = "YourFont-SemiBold"
-    // private static let bodyRegular = "YourFont-Regular"
+    private static let lexendDecaLight = "LexendDeca-Light"
+    private static let lexendDecaRegular = "LexendDeca-Regular"
+    private static let lexendDecaMedium = "LexendDeca-Medium"
 
     // MARK: - Type Styles
 
-    // Add your type styles here. Each style should include:
-    // - A Font value using Font.custom(name, size:)
-    // - A lineHeight value as CGFloat
-    //
-    // Example:
-    //
-    // /// Headline: YourFont SemiBold, 24px, lineHeight 28px
-    // /// Used for: Screen titles
-    // static let headline = Font.custom(headingSemiBold, size: 24)
-    // static let headlineLineHeight: CGFloat = 28
-    //
-    // /// Title: YourFont SemiBold, 18px, lineHeight 22px
-    // /// Used for: Section titles
-    // static let title = Font.custom(headingSemiBold, size: 18)
-    // static let titleLineHeight: CGFloat = 22
-    //
-    // /// Body Regular: YourFont Regular, 14px, lineHeight 20px
-    // /// Used for: Body text, descriptions
-    // static let bodyRegular = Font.custom(bodyRegular, size: 14)
-    // static let bodyLineHeight: CGFloat = 20
-    //
-    // /// Button: YourFont SemiBold, 16px, lineHeight 16px
-    // /// Used for: Button labels
-    // static let button = Font.custom(headingSemiBold, size: 16)
-    // static let buttonLineHeight: CGFloat = 16
+    /// Title: Lexend Deca Medium, 36px, lineHeight 44px
+    /// Used for: Screen titles, primary headings
+    static let title = Font.custom(lexendDecaMedium, size: 36)
+    static let titleLineHeight: CGFloat = 44
+
+    /// Body Emphasized: Lexend Deca Medium, 18px, lineHeight 28px
+    /// Used for: Emphasized body text, section titles
+    static let bodyEmphasized = Font.custom(lexendDecaMedium, size: 18)
+    static let bodyEmphasizedLineHeight: CGFloat = 28
+
+    /// Body Regular: Lexend Deca Regular, 18px, lineHeight 28px
+    /// Used for: Body text, descriptions
+    static let bodyRegular = Font.custom(lexendDecaRegular, size: 18)
+    static let bodyRegularLineHeight: CGFloat = 28
+
+    /// Accent Emphasized: Lexend Deca Medium, 14px, lineHeight 16px
+    /// Used for: Emphasized labels, captions
+    static let accentEmphasized = Font.custom(lexendDecaMedium, size: 14)
+    static let accentEmphasizedLineHeight: CGFloat = 16
+
+    /// Accent Regular: Lexend Deca Regular, 14px, lineHeight 16px
+    /// Used for: Secondary labels, captions
+    static let accentRegular = Font.custom(lexendDecaRegular, size: 14)
+    static let accentRegularLineHeight: CGFloat = 16
+
+    /// Accent Light: Lexend Deca Light, 14px, lineHeight 16px
+    /// Used for: Tertiary labels, subtle text
+    static let accentLight = Font.custom(lexendDecaLight, size: 14)
+    static let accentLightLineHeight: CGFloat = 16
+
+    /// Accent Small: Lexend Deca Regular, 12px, lineHeight 16px
+    /// Used for: Fine print, timestamps, badges
+    static let accentSmall = Font.custom(lexendDecaRegular, size: 12)
+    static let accentSmallLineHeight: CGFloat = 16
 }

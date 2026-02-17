@@ -43,25 +43,84 @@ extension Color {
 
 enum DSColors {
 
-    // Add your color tokens here, organized by category.
-    // Use MARK comments to group related tokens.
-    //
-    // Example categories:
-    //
-    // MARK: Brand
-    // static let brandPrimary = Color(hex: "#...")
-    //
-    // MARK: Grayscale
-    // static let grayscale00 = Color.white
-    // static let grayscale80 = Color(hex: "#...")
-    //
-    // MARK: Button
-    // static let buttonPrimaryBg = Color(hex: "#...")
-    // static let buttonPrimaryContent = Color.white
-    // static let buttonDisabledBg = Color(hex: "#...")
-    // static let buttonDisabledContent = Color(hex: "#...")
-    //
-    // MARK: Input
-    // static let inputBorder = Color(hex: "#...")
-    // static let inputBackground = Color.white
+    // MARK: - Primitives
+
+    static let primitiveBlack = Color(hex: "#000000")
+    static let primitiveWhite = Color(hex: "#FFFFFF")
+    static let primitiveBlue600 = Color(hex: "#276EF1")
+    static let primitiveRed600 = Color(hex: "#DE1135")
+    static let primitiveYellow300 = Color(hex: "#F6BC2F")
+    static let primitiveGreen600 = Color(hex: "#0E8345")
+
+    // MARK: - Background
+
+    static let backgroundPrimary = Color(hex: "#FFFFFF")
+    static let backgroundSecondary = Color(hex: "#F3F3F3")
+    static let backgroundTertiary = Color(hex: "#E8E8E8")
+
+    // MARK: - Content
+
+    static let contentPrimary = Color(hex: "#000000")
+    static let contentSecondary = Color(hex: "#4B4B4B")
+    static let contentTertiary = Color(hex: "#5E5E5E")
+
+    // MARK: - Border
+
+    static let borderOpaque = Color(hex: "#E8E8E8")
+    static let borderSelected = Color(hex: "#000000")
+
+    // MARK: - Inverse
+
+    static let backgroundInversePrimary = Color(hex: "#000000")
+    static let backgroundInverseSecondary = Color(hex: "#282828")
+
+    static let contentInversePrimary = Color(hex: "#FFFFFF")
+    static let contentInverseSecondary = Color(hex: "#DDDDDD")
+    static let contentInverseTertiary = Color(hex: "#A6A6A6")
+
+    static let borderInverseOpaque = Color(hex: "#4B4B4B")
+    static let borderInverseSelected = Color(hex: "#FFFFFF")
+
+    // MARK: - Background Extensions
+
+    static let backgroundStateDisabled = Color(hex: "#F3F3F3")
+    static let backgroundAccent = Color(hex: "#276EF1")
+    static let backgroundNegative = Color(hex: "#DE1135")
+    static let backgroundWarning = Color(hex: "#F6BC2F")
+    static let backgroundPositive = Color(hex: "#0E8345")
+    static let backgroundAccentLight = Color(hex: "#EFF4FE")
+    static let backgroundNegativeLight = Color(hex: "#FFF0EE")
+    static let backgroundWarningLight = Color(hex: "#FDF2DC")
+    static let backgroundPositiveLight = Color(hex: "#EAF6ED")
+    static let backgroundAlwaysDark = Color(hex: "#000000")
+    static let backgroundAlwaysLight = Color(hex: "#FFFFFF")
+
+    // MARK: - Content Extensions
+
+    static let contentStateDisabled = Color(hex: "#A6A6A6")
+    static let contentOnColor = Color(hex: "#FFFFFF")
+    static let contentOnColorInverse = Color(hex: "#000000")
+    static let contentAccent = Color(hex: "#276EF1")
+    static let contentNegative = Color(hex: "#DE1135")
+    static let contentWarning = Color(hex: "#9F6402")
+    static let contentPositive = Color(hex: "#0E8345")
+
+    // MARK: - Border Extensions
+
+    static let borderStateDisabled = Color(hex: "#F3F3F3")
+    static let borderAccent = Color(hex: "#276EF1")
+    static let borderNegative = Color(hex: "#DE1135")
+    static let borderWarning = Color(hex: "#9F6402")
+    static let borderPositive = Color(hex: "#0E8345")
+    static let borderAccentLight = Color(hex: "#CDDEFF")
+
+    // MARK: - Programs
+
+    static let programsSafety = Color(hex: "#276EF1")
+    static let programsEats = Color(hex: "#0E8345")
+    static let programsFreight = Color(hex: "#0E1FC1")
+    static let programsRewardsTier2 = Color(hex: "#FFC043")
+    static let programsRewardsTier3 = Color(hex: "#8FA3AD")
+    static let programsRewardsTier4 = Color(hex: "#000000")
+    static let programsMembership = Color(hex: "#9F6402")
 }

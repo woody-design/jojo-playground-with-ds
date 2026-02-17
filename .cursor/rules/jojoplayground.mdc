@@ -103,15 +103,43 @@ DesignSystem/
 
 ### Colors (DSColors)
 
-*Add your color tokens here after defining them in DSColors.swift.*
+**Primitives:** `primitiveBlack`, `primitiveWhite`, `primitiveBlue600`, `primitiveRed600`, `primitiveYellow300`, `primitiveGreen600`
+
+**Background:** `backgroundPrimary` (#FFFFFF), `backgroundSecondary` (#F3F3F3), `backgroundTertiary` (#E8E8E8)
+
+**Content:** `contentPrimary` (#000000), `contentSecondary` (#4B4B4B), `contentTertiary` (#5E5E5E)
+
+**Border:** `borderOpaque` (#E8E8E8), `borderSelected` (#000000)
+
+**Inverse:** `backgroundInversePrimary`, `backgroundInverseSecondary`, `contentInversePrimary`, `contentInverseSecondary`, `contentInverseTertiary`, `borderInverseOpaque`, `borderInverseSelected`
+
+**Background Extensions:** `backgroundStateDisabled`, `backgroundAccent`, `backgroundNegative`, `backgroundWarning`, `backgroundPositive`, `backgroundAccentLight`, `backgroundNegativeLight`, `backgroundWarningLight`, `backgroundPositiveLight`, `backgroundAlwaysDark`, `backgroundAlwaysLight`
+
+**Content Extensions:** `contentStateDisabled`, `contentOnColor`, `contentOnColorInverse`, `contentAccent`, `contentNegative`, `contentWarning`, `contentPositive`
+
+**Border Extensions:** `borderStateDisabled`, `borderAccent`, `borderNegative`, `borderWarning`, `borderPositive`, `borderAccentLight`
+
+**Programs:** `programsSafety`, `programsEats`, `programsFreight`, `programsRewardsTier2`, `programsRewardsTier3`, `programsRewardsTier4`, `programsMembership`
 
 ### Typography (DSTypography)
 
-*Add your typography tokens here after defining them in DSTypography.swift.*
+Font family: Lexend Deca (variable weight). Each style has a `Font` and a `lineHeight: CGFloat`.
+
+| Token | Weight | Size | Line Height |
+|-------|--------|------|-------------|
+| `title` | Medium | 36px | 44px |
+| `bodyEmphasized` | Medium | 18px | 28px |
+| `bodyRegular` | Regular | 18px | 28px |
+| `accentEmphasized` | Medium | 14px | 16px |
+| `accentRegular` | Regular | 14px | 16px |
+| `accentLight` | Light | 14px | 16px |
+| `accentSmall` | Regular | 12px | 16px |
+
+Usage: `.font(DSTypography.title)` and `.lineSpacing(DSTypography.titleLineHeight - 36)` or use `lineHeight` for frame calculations.
 
 ### Spacing (DSSpacing)
 
-*Add your spacing tokens here after defining them in DSSpacing.swift.*
+`none`=0, `s2`=2, `s4`=4, `s8`=8, `s12`=12, `s16`=16, `s20`=20, `s24`=24, `s28`=28, `s32`=32, `s36`=36, `s40`=40, `s48`=48, `s56`=56, `s64`=64, `s96`=96, `s128`=128
 
 ## Coding Conventions
 

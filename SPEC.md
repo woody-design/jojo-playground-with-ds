@@ -114,21 +114,140 @@ JoJoPlayground/
 
 ### 5.1 Colors (DSColors)
 
+**Primitives**
+
 | Token | Value | Usage |
 |-------|-------|-------|
-| *Add your color tokens here* | | |
+| `primitiveBlack` | `#000000` | Core black |
+| `primitiveWhite` | `#FFFFFF` | Core white |
+| `primitiveBlue600` | `#276EF1` | Core blue |
+| `primitiveRed600` | `#DE1135` | Core red |
+| `primitiveYellow300` | `#F6BC2F` | Core yellow |
+| `primitiveGreen600` | `#0E8345` | Core green |
+
+**Background**
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `backgroundPrimary` | `#FFFFFF` | Default background |
+| `backgroundSecondary` | `#F3F3F3` | Secondary background |
+| `backgroundTertiary` | `#E8E8E8` | Tertiary background |
+
+**Content**
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `contentPrimary` | `#000000` | Primary text / icons |
+| `contentSecondary` | `#4B4B4B` | Secondary text |
+| `contentTertiary` | `#5E5E5E` | Tertiary text |
+
+**Border**
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `borderOpaque` | `#E8E8E8` | Default border |
+| `borderSelected` | `#000000` | Selected / active border |
+
+**Inverse**
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `backgroundInversePrimary` | `#000000` | Dark background |
+| `backgroundInverseSecondary` | `#282828` | Dark secondary background |
+| `contentInversePrimary` | `#FFFFFF` | Text on dark background |
+| `contentInverseSecondary` | `#DDDDDD` | Secondary text on dark |
+| `contentInverseTertiary` | `#A6A6A6` | Tertiary text on dark |
+| `borderInverseOpaque` | `#4B4B4B` | Border on dark background |
+| `borderInverseSelected` | `#FFFFFF` | Selected border on dark |
+
+**Background Extensions**
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `backgroundStateDisabled` | `#F3F3F3` | Disabled state background |
+| `backgroundAccent` | `#276EF1` | Accent background |
+| `backgroundNegative` | `#DE1135` | Error / negative background |
+| `backgroundWarning` | `#F6BC2F` | Warning background |
+| `backgroundPositive` | `#0E8345` | Success background |
+| `backgroundAccentLight` | `#EFF4FE` | Light accent background |
+| `backgroundNegativeLight` | `#FFF0EE` | Light error background |
+| `backgroundWarningLight` | `#FDF2DC` | Light warning background |
+| `backgroundPositiveLight` | `#EAF6ED` | Light success background |
+| `backgroundAlwaysDark` | `#000000` | Always dark (ignores theme) |
+| `backgroundAlwaysLight` | `#FFFFFF` | Always light (ignores theme) |
+
+**Content Extensions**
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `contentStateDisabled` | `#A6A6A6` | Disabled content |
+| `contentOnColor` | `#FFFFFF` | Text on colored background |
+| `contentOnColorInverse` | `#000000` | Text on light colored background |
+| `contentAccent` | `#276EF1` | Accent text / icon |
+| `contentNegative` | `#DE1135` | Error text |
+| `contentWarning` | `#9F6402` | Warning text |
+| `contentPositive` | `#0E8345` | Success text |
+
+**Border Extensions**
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `borderStateDisabled` | `#F3F3F3` | Disabled border |
+| `borderAccent` | `#276EF1` | Accent border |
+| `borderNegative` | `#DE1135` | Error border |
+| `borderWarning` | `#9F6402` | Warning border |
+| `borderPositive` | `#0E8345` | Success border |
+| `borderAccentLight` | `#CDDEFF` | Light accent border |
+
+**Programs**
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `programsSafety` | `#276EF1` | Safety program |
+| `programsEats` | `#0E8345` | Eats program |
+| `programsFreight` | `#0E1FC1` | Freight program |
+| `programsRewardsTier2` | `#FFC043` | Rewards tier 2 |
+| `programsRewardsTier3` | `#8FA3AD` | Rewards tier 3 |
+| `programsRewardsTier4` | `#000000` | Rewards tier 4 |
+| `programsMembership` | `#9F6402` | Membership program |
 
 ### 5.2 Typography (DSTypography)
 
-| Token | Font | Size | Line Height | Usage |
-|-------|------|------|-------------|-------|
-| *Add your typography tokens here* | | | | |
+Font family: **Lexend Deca** (variable weight)
+
+| Token | Weight | Size | Line Height | Usage |
+|-------|--------|------|-------------|-------|
+| `title` | Medium | 36px | 44px | Screen titles, primary headings |
+| `bodyEmphasized` | Medium | 18px | 28px | Emphasized body text, section titles |
+| `bodyRegular` | Regular | 18px | 28px | Body text, descriptions |
+| `accentEmphasized` | Medium | 14px | 16px | Emphasized labels, captions |
+| `accentRegular` | Regular | 14px | 16px | Secondary labels, captions |
+| `accentLight` | Light | 14px | 16px | Tertiary labels, subtle text |
+| `accentSmall` | Regular | 12px | 16px | Fine print, timestamps, badges |
+
+Each token has a corresponding `lineHeight` property (e.g., `DSTypography.titleLineHeight`).
 
 ### 5.3 Spacing (DSSpacing)
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| *Add your spacing tokens here* | | |
+| Token | Value |
+|-------|-------|
+| `none` | 0pt |
+| `s2` | 2pt |
+| `s4` | 4pt |
+| `s8` | 8pt |
+| `s12` | 12pt |
+| `s16` | 16pt |
+| `s20` | 20pt |
+| `s24` | 24pt |
+| `s28` | 28pt |
+| `s32` | 32pt |
+| `s36` | 36pt |
+| `s40` | 40pt |
+| `s48` | 48pt |
+| `s56` | 56pt |
+| `s64` | 64pt |
+| `s96` | 96pt |
+| `s128` | 128pt |
 
 ---
 

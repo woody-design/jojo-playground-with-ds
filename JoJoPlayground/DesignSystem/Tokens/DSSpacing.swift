@@ -13,29 +13,54 @@ import SwiftUI
 
 enum DSSpacing {
 
-    // Add your spacing tokens here.
-    // Use a consistent naming convention (e.g., t-shirt sizes).
-    //
-    // Example:
-    //
-    // /// 0px — no spacing
-    // static let none: CGFloat = 0
-    //
-    // /// 4px — minimal gap
-    // static let xs: CGFloat = 4
-    //
-    // /// 8px — small gap
-    // static let sm: CGFloat = 8
-    //
-    // /// 12px — medium gap
-    // static let md: CGFloat = 12
-    //
-    // /// 16px — standard padding
-    // static let lg: CGFloat = 16
-    //
-    // /// 24px — section gap
-    // static let xl: CGFloat = 24
-    //
-    // /// 32px — large section gap
-    // static let xxl: CGFloat = 32
+    /// 0pt — no spacing
+    static let none: CGFloat = 0
+
+    /// 2pt
+    static let s2: CGFloat = 2
+
+    /// 4pt
+    static let s4: CGFloat = 4
+
+    /// 8pt
+    static let s8: CGFloat = 8
+
+    /// 12pt
+    static let s12: CGFloat = 12
+
+    /// 16pt
+    static let s16: CGFloat = 16
+
+    /// 20pt
+    static let s20: CGFloat = 20
+
+    /// 24pt
+    static let s24: CGFloat = 24
+
+    /// 28pt
+    static let s28: CGFloat = 28
+
+    /// 32pt
+    static let s32: CGFloat = 32
+
+    /// 36pt
+    static let s36: CGFloat = 36
+
+    /// 40pt
+    static let s40: CGFloat = 40
+
+    /// 48pt
+    static let s48: CGFloat = 48
+
+    /// 56pt
+    static let s56: CGFloat = 56
+
+    /// 64pt
+    static let s64: CGFloat = 64
+
+    /// 96pt
+    static let s96: CGFloat = 96
+
+    /// 128pt
+    static let s128: CGFloat = 128
 }
