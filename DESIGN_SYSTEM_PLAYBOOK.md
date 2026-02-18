@@ -147,7 +147,7 @@ Fonts, colors, typography, and spacing are all defined. The design system founda
 
 **Documentation updated:**
 - Token reference tables in `SPEC.md` (Section 5)
-- Token reference in `.cursor/rules/jojoplayground.mdc` (so the AI validates token usage)
+- Token reference in `CLAUDE.md` (so the AI validates token usage)
 
 **How Figma data was extracted:**
 - Colors: `get_variable_defs` on the Color page node — returned all hex values as structured data
@@ -217,7 +217,7 @@ DSImages.homeBG
 2. Drag into `Assets.xcassets` in Xcode
 3. Set: Single Scale, Template Image, Preserve Vector Data
 4. Add a `static let` to `DSIcons` in `DSIcons.swift`
-5. Update the token reference in `SPEC.md` and `.cursor/rules/jojoplayground.mdc`
+5. Update the token reference in `SPEC.md` and `CLAUDE.md`
 
 ---
 
@@ -278,4 +278,4 @@ Assemble components into full user flows. See [FLOW_TEMPLATE.md](FLOW_TEMPLATE.m
 
 ## Final Step
 
-Token tables in [SPEC.md](SPEC.md) (Section 5) and [.cursor/rules/jojoplayground.mdc](.cursor/rules/jojoplayground.mdc) are already updated for Phases 1–5. Update them again if you add new tokens, components, or assets in later phases.
+Token tables in [SPEC.md](SPEC.md) (Section 5) and [CLAUDE.md](CLAUDE.md) are already updated for Phases 1–5. Update them again if you add new tokens, components, or assets in later phases.

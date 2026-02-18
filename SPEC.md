@@ -103,7 +103,7 @@ JoJoPlayground/
 │               ├── FirstScreenView.swift
 │               └── ...
 │
-├── .cursor/rules/jojoplayground.mdc  # Cursor AI rules
+├── CLAUDE.md                          # Claude Code AI rules
 ├── FLOW_TEMPLATE.md                  # How to add a new flow
 ├── SPEC.md                           # This file
 └── README.md                         # Getting started guide
@@ -423,7 +423,7 @@ DSImages.homeBG
 2. Drag into `Assets.xcassets` in Xcode
 3. Configure: **Single Scale**, **Template Image**, **Preserve Vector Data**
 4. Add a `static let` to `DSIcons` in `DSIcons.swift`
-5. Update this spec and `.cursor/rules/jojoplayground.mdc`
+5. Update this spec and `CLAUDE.md`
 
 ### 7.4 Adding New Images
 
